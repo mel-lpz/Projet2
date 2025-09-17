@@ -18,7 +18,7 @@ const users = data.results;
 	<div class="overflow-hidden w-full">
   		<div class="flex gap-4 w-max">
 				<ul class="flex gap-4 pb-4">
-					{users.map((user) => (
+					{users.map((user : any) => (
 						<li>
 							<Card user={user}/>
 						</li>
