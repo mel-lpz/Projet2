@@ -7,5 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+  base: '/Projet2/',
+  site: 'https://mel-lpz.github.io',
 });
