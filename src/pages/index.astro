@@ -18,9 +18,11 @@ const users = data.results;
 	<div class="overflow-hidden w-full">
   		<div class="flex gap-4 w-max">
 				<ul class="flex gap-4 pb-4">
-					{users.map((user : any) => (
+					{users
+					.filter(user => user && user.name && user.picture && user.email)
+					.map((user) => (
 						<li>
-							<Card user={user}/>
+						<Card user={user} />
 						</li>
 					))}
 				</ul>
