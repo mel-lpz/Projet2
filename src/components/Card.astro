@@ -1,6 +1,10 @@
 ---
 const { user, maClass = "" } = Astro.props;
 
+if (!user?.name || !user?.email || !user?.picture) {
+  return null;
+}
+
 const fullName = `${user.name.first} ${user.name.last}`;
 const email = user.email;
 const city = user.location?.city || "";
