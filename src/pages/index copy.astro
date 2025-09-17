@@ -1,0 +1,22 @@
+---
+
+import BasicLayout from "../layout/BasicLayout.astro";
+import Card from "../components/Card.astro";
+
+const reponsData = await fetch("https://randomuser.me/api/?results=5");
+const users = await reponsData.json();
+console.log(users);
+
+---
+
+<BasicLayout title="Home Page">
+	<main class="p-6 space-y-4">
+    <h1 class="text-2xl font-bold">Utilisateurs</h1>
+		<Card user={users[0]} />					
+	
+	</main>
+</BasicLayout>
+
+
+
+

@@ -1,12 +1,39 @@
 ---
 
 import BasicLayout from "../layout/BasicLayout.astro";
+import Card from "../components/Card.astro";
 
+const res = await fetch("https://randomuser.me/api/?results=10");
+const data = await res.json();
+const users = data.results;
 ---
 
-<BasicLayout title="Home Page">
-	<h1 class="text-4xl font-bold text-amber-500">Welcome to Astro!</h1>
-	<p>This is the home page..</p>
+<BasicLayout title="Profils utilisateurs">
+
+	
+  <section class="py-12 px-4 space-y-6">
+    <h1 class="text-3xl font-bold text-center text-gray-800">Utilisateurs</h1>
+	
+
+	<div class="overflow-hidden w-full">
+  		<div class="flex gap-4 w-max">
+
+				<div class="scroll-container">
+					<div class="scroll-track">
+				<ul class="flex gap-4 pb-4">
+					{users.map((user) => (
+						<li>
+							<Card user={user}/>
+						</li>
+					))}
+				</ul>
+				</div>
+				</div>
+		</div>
+	</div>
+
+
+  </section>
 </BasicLayout>
 
 
